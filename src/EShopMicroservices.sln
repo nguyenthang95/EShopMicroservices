@@ -9,6 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{BE64
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{93FB1D3A-F233-48A4-96A5-3DB121F295C9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{D983A2FA-42A6-420A-896B-6D464C2A302B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{E1238A65-1666-436C-B6B7-42FDFEFD8CEC}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C40CF8F2-2C00-40C5-B61E-1EDAAD25C9EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +25,14 @@ Global
 		{93FB1D3A-F233-48A4-96A5-3DB121F295C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93FB1D3A-F233-48A4-96A5-3DB121F295C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93FB1D3A-F233-48A4-96A5-3DB121F295C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1238A65-1666-436C-B6B7-42FDFEFD8CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1238A65-1666-436C-B6B7-42FDFEFD8CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1238A65-1666-436C-B6B7-42FDFEFD8CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1238A65-1666-436C-B6B7-42FDFEFD8CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40CF8F2-2C00-40C5-B61E-1EDAAD25C9EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40CF8F2-2C00-40C5-B61E-1EDAAD25C9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40CF8F2-2C00-40C5-B61E-1EDAAD25C9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40CF8F2-2C00-40C5-B61E-1EDAAD25C9EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BE642AA0-686F-4D15-9B92-55065D732857} = {355EB2EC-124E-493D-8742-F51C99B113B7}
 		{93FB1D3A-F233-48A4-96A5-3DB121F295C9} = {BE642AA0-686F-4D15-9B92-55065D732857}
+		{E1238A65-1666-436C-B6B7-42FDFEFD8CEC} = {D983A2FA-42A6-420A-896B-6D464C2A302B}
 	EndGlobalSection
 EndGlobal

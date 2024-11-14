@@ -38,6 +38,9 @@
     },
     "Profile 1": {
       "commandName": "Docker"
+    },
+    "Profile 2": {
+      "commandName": "Executable"
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
