@@ -1,23 +1,27 @@
-﻿using Catalog.API.Products.GetProductById;
-using Marten.Linq.QueryHandlers;
+﻿namespace Catalog.API.Products.DeleteProduct;
 
-namespace Catalog.API.Products.DeleteProduct;
-
-public record DeleteProductQuery(Guid Id) : IQuery<DeleteProductResult>;
+public record DeleteProductCommand(Guid Id) : IQuery<DeleteProductResult>;
 
 public record DeleteProductResult(bool IsDeleted);
 
-public class DeleteProductQueryHandler(IDocumentSession session, ILogger<DeleteProductQueryHandler> logger) : IQueryHandler<DeleteProductQuery, DeleteProductResult>
+public class DeleteProductCommandValidator : AbstractValidator<DeleteProductCommand>
 {
-    public async Task<DeleteProductResult> Handle(DeleteProductQuery query, CancellationToken cancellationToken)
+    public DeleteProductCommandValidator()
     {
-        logger.LogInformation("DeleteProductQueryHandler.Handler call with @{query}", query);
+        RuleFor(x => x.Id)
+            .NotEmpty().WithMessage("product Id is required");
+    }
+}
 
+public class DeleteProductQueryHandler(IDocumentSession session) : IQueryHandler<DeleteProductCommand, DeleteProductResult>
+{
+    public async Task<DeleteProductResult> Handle(DeleteProductCommand query, CancellationToken cancellationToken)
+    {
         var product = await session.LoadAsync<Product>(query.Id, cancellationToken);
 
         if (product == null)
         {
-            throw new ProductNotFoundException();
+            throw new ProductNotFoundException(query.Id);
         }
 
         session.Delete(product);
