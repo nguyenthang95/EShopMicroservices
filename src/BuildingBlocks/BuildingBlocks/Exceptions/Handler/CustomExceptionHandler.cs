@@ -32,7 +32,7 @@ public class CustomExceptionHandler(ILogger<CustomExceptionHandler> logger) : IE
             NotFoundException => (
                 exception.Message,
                 exception.GetType().Name,
-                context.Response.StatusCode = StatusCodes.Status500InternalServerError
+                context.Response.StatusCode = StatusCodes.Status404NotFound
             ),
             _ => (
                 exception.Message,
