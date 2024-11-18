@@ -1,5 +1,3 @@
-using Ordering.API;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Connection connection string in aspSetting.json
@@ -16,5 +14,8 @@ var app = builder.Build();
 
 // Configure the Http request pipeline
 app.UseApiService();
+
+if(app.Environment.IsDevelopment())
+    await app.InitialiseDatabaseAsync();
 
 app.Run();

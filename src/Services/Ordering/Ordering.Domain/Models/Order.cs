@@ -18,7 +18,7 @@ public class Order : Aggregate<OrderId>
     }
 
     public static Order Create(OrderId id, CustomerId customerId, OrderName orderName,
-        Address shippingAddress, Address billingAddress, Payment payment, decimal totalPrice)
+        Address shippingAddress, Address billingAddress, Payment payment)
     {
         var order = new Order
         {
@@ -28,7 +28,6 @@ public class Order : Aggregate<OrderId>
             ShippingAddress = shippingAddress,
             BillingAddress = billingAddress,
             Payment = payment,
-            TotalPrice = totalPrice
         };
 
         order.AddDomainEvent(new OrderCreatedEvent(order));

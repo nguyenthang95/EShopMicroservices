@@ -1,5 +1,4 @@
-﻿
-namespace Ordering.Infrastructure.Data.Configuratons
+﻿namespace Ordering.Infrastructure.Data.Configuratons
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
