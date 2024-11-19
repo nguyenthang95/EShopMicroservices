@@ -12,3 +12,6 @@ global using Ordering.Application.Extentions;
 
 global using Microsoft.EntityFrameworkCore;
 global using FluentValidation;
+
+global using BuildingBlocks.Pagination;
+global using Microsoft.EntityFrameworkCore;

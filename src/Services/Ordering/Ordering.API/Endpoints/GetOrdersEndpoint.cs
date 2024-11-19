@@ -1,6 +1,6 @@
 ﻿namespace Ordering.API.Endpoints;
 
-public record GetOrdersResponse(PaginatedResult<OrderDto> Paginated);
+public record GetOrdersResponse(PaginatedResult<OrderDto> PaginatedResult);
 
 public class GetOrdersEndpoint : ICarterModule
 {
@@ -8,9 +8,7 @@ public class GetOrdersEndpoint : ICarterModule
     {
         app.MapGet( "/orders", async ([AsParameters] PaginationRequest request, ISender sender) =>
         {
-            var query = request.Adapt<GetOrdersQuery>();
-
-            var result = await sender.Send(query);
+            var result = await sender.Send(new GetOrdersQuery(request));
 
             var response = result.Adapt<GetOrdersResponse>();
 

@@ -1,5 +1,4 @@
 ﻿
-using BuildingBlocks.Pagination;
 
 namespace Ordering.Application.Orders.Queries.GetOrders;
 
@@ -11,10 +10,10 @@ internal class GetOrdersHandler(IApplicationDbContext dbContext) : IQueryHandler
             var pageSize = query.PaginationRequest.PageSize;
             var pageIndex = query.PaginationRequest.PageIndex;
 
-            var totalCount = await dbContext.OrderItems.CountAsync();
+            var totalCount = await dbContext.Orders.CountAsync();
             var orders = await dbContext.Orders
                 .Include(x => x.OrderItems)
-                .OrderBy(x => x.OrderName)
+                .OrderBy(x => x.OrderName.Value)
                 .Skip(pageSize * pageIndex)
                 .Take(pageSize)
                 .ToListAsync();

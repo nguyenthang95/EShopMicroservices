@@ -1,6 +1,6 @@
 ﻿namespace Ordering.API.Endpoints;
 
-public record UpdateOrderRequest(Guid Id, OrderDto request);
+public record UpdateOrderRequest(OrderDto Order);
 public record UpdateOrderResponse(bool IsSuccess);
 
 public class UpdateOrderEndpoint : ICarterModule

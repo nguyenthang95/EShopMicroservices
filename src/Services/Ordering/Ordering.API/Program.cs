@@ -7,7 +7,7 @@ var dbConntection = builder.Configuration.GetConnectionString("Database");
 builder.Services
     .AddApplicationServices()
     .AddInfrastructureServices(builder.Configuration)
-    .AddApiServices();
+    .AddApiServices(builder.Configuration);
 
 
 var app = builder.Build();

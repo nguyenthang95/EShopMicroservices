@@ -13,3 +13,4 @@ global using Ordering.Application.Orders.Queries.GetOrdersByCustomer;
 global using BuildingBlocks.Pagination;
 global using Ordering.Application.Orders.Queries.GetOrderByName;
 global using Ordering.Application.Orders.Queries.GetOrders;
+global using BuildingBlocks.Exceptions.Handler;
