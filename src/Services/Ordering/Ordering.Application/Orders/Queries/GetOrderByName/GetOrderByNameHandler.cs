@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Ordering.Application.Extentions;
 
-namespace Ordering.Application.Orders.Queries.GetOrderByName
+namespace Ordering.Application.Orders.Queries.GetOrderByName;
+
+public class GetOrderByNameHandler(IApplicationDbContext dbContext) : IQueryHandler<GetOrderByNameQuery, GetOrderByNameResult>
 {
-    internal class GetOrderByNameHandler
+    public async Task<GetOrderByNameResult> Handle(GetOrderByNameQuery query, CancellationToken cancellationToken)
     {
+        var orders = await dbContext.Orders
+            .Include(x => x.OrderItems)
+            .AsNoTracking()
+            .Where(x => x.OrderName.Value.Contains(query.Name))
+            .ToListAsync();
+
+        return new GetOrderByNameResult(orders.ToOrderDtoList());
     }
 }

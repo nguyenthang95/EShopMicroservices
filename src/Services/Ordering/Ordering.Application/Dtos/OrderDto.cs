@@ -8,4 +8,4 @@ public record OrderDto(
     AddressDto BillingAddress,
     PaymentDto Payment,
     OrderStatus Status,
-    List<OrderItem> OrderItems);
+    List<OrderItemDto> OrderItems);
