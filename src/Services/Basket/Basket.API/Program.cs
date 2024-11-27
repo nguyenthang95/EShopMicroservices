@@ -1,5 +1,6 @@
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using BuildingBlocks.Messaging.MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 // Connection connection string in aspSetting.json
@@ -46,8 +47,12 @@ builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
     return handler;
 });
 
+// Async Communication Services
+builder.Services.AddMessageBroker(builder.Configuration);
 
+// Cross-Cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+
 builder.Services.AddHealthChecks()
     .AddNpgSql(dbConntection!)
     .AddRedis(redisConnection!);
